@@ -15,4 +15,6 @@ module br.luigi.baterponto1 {
     exports br.luigi.baterponto1;
     exports br.luigi.baterponto1.controller;
     opens br.luigi.baterponto1.controller to javafx.fxml;
+    exports model;
+    opens model to javafx.fxml;
 }
