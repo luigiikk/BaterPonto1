@@ -14,7 +14,7 @@
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-
+            <Button fx:id="voltarButton" layoutY="348.0" mnemonicParsing="false" onAction="#voltarButton" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #e5352e; -fx-border-radius: 10;" text="&lt;" />
          </children>
       </AnchorPane>
    </left>
@@ -37,6 +37,7 @@
             <TextField fx:id="functionField" layoutX="37.0" layoutY="181.0" prefHeight="25.0" prefWidth="227.0" promptText="Função" />
             <TextField fx:id="nameField" layoutX="37.0" layoutY="105.0" prefHeight="25.0" prefWidth="227.0" promptText="Nome" />
             <CheckBox fx:id="isAdminCheckBox" layoutX="203.0" layoutY="251.0" mnemonicParsing="false" text="Admin" />
+            <Button fx:id="voltarButton" layoutX="24.0" layoutY="358.0" mnemonicParsing="false" onAction="#voltarButton" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #e5352e; -fx-border-radius: 10;" text="&lt;" />
          </children>
       </AnchorPane>
    </right>

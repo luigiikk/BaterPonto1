@@ -6,44 +6,99 @@ public class Employee {
     private int password;
     private String function;
     private boolean isAdmin;
+    private long saldoHoras;
+    private double salario;
+    private String horasTotais;
+    private String horasExtras;
+    private String horasAPagar;
+    private double salarioCalculado;
 
-    public Employee(String name, int enrollment, int password, String function, boolean isAdmin){
+    public Employee(String name, int enrollment, int password, String function, boolean isAdmin, long saldoHoras, double salario){
         this.name = name;
         this.enrollment = enrollment;
-        this.function = function;
         this.password = password;
+        this.function = function;
         this.isAdmin = isAdmin;
+        this.saldoHoras = saldoHoras;
+        this.salario = salario;
+    }
+    public String getHorasTotais() {
+        return horasTotais;
     }
 
-    public String getName(){
+    public void setHorasTotais(String horasTotais) {
+        this.horasTotais = horasTotais;
+    }
+
+    public String getHorasExtras() {
+        return horasExtras;
+    }
+
+    public void setHorasExtras(String horasExtras) {
+        this.horasExtras = horasExtras;
+    }
+
+    public String getHorasAPagar() {
+        return horasAPagar;
+    }
+
+    public void setHorasAPagar(String horasAPagar) {
+        this.horasAPagar = horasAPagar;
+    }
+
+    public double getSalarioCalculado() {
+        return salarioCalculado;
+    }
+
+    public void setSalarioCalculado(double salarioCalculado) {
+        this.salarioCalculado = salarioCalculado;
+    }
+
+    public long getSaldoHoras() {
+        return saldoHoras;
+    }
+
+    public void setSaldoHoras(long saldoHoras) {
+        this.saldoHoras = saldoHoras;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getEnrollment(){
+    public int getEnrollment() {
         return enrollment;
     }
 
-    public void setEnrollment(int enrollment){
+    public void setEnrollment(int enrollment) {
         this.enrollment = enrollment;
     }
 
-    public String getFunction(){
+    public String getFunction() {
         return function;
     }
 
-    public void setFunction(String function){
+    public void setFunction(String function) {
         this.function = function;
     }
 
-    public int getPassword(){
+    public int getPassword() {
         return password;
     }
 
-    public void setPassword(int password){
+    public void setPassword(int password) {
         this.password = password;
     }
 

@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.Employee;
 import model.EmployeeDAO;
 
 public class LoginController {
@@ -25,11 +26,12 @@ public class LoginController {
 
             EmployeeDAO employeeDAO = new EmployeeDAO();
 
-            if (employeeDAO.isValidEmployee(matricula, senha)) {
-                if (employeeDAO.isAdmin(matricula)) {
-                    Main.changeScreen("adm");
+            Employee employee = employeeDAO.getEmployee(matricula);
+            if (employee != null && employee.getPassword() == senha) {
+                if (employee.isAdmin()) {
+                    Main.changeScreen("adm", employee);
                 } else {
-                    Main.changeScreen("employee");
+                    Main.changeScreen("employee", employee);
                 }
             } else {
                 System.err.println("Funcionário inválido ou senha incorreta.");

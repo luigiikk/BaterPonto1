@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,37 +12,28 @@
    <top>
       <AnchorPane prefHeight="82.0" prefWidth="725.0" style="-fx-background-color: #0f1521;" BorderPane.alignment="CENTER">
          <children>
-
-            <Text fill="#e5352e" layoutX="104.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee" wrappingWidth="77.36328125">
-               <font>
-                  <Font name="Arial Black" size="14.0" />
-               </font>
-            </Text>
-            <Text fill="#e5352e" layoutX="104.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="000000">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font>
-            </Text>
-            <Text fill="#e5352e" layoutX="165.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font>
-            </Text>
             <Text layoutX="152.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="#e5352e" layoutX="692.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10:30" wrappingWidth="57.36328125">
-               <font>
-                  <Font name="Arial Black" size="18.0" />
-               </font>
-            </Text>
-            <Text fill="#e5352e" layoutX="689.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16/01/2020" wrappingWidth="63.05859375">
+            <Label fx:id="employeeName" layoutX="113.0" layoutY="15.0" text="Label" textFill="#e5352e">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
-            </Text>
+            </Label>
+            <Label fx:id="employeeEnrollment" layoutX="113.0" layoutY="33.0" text="Label" textFill="#e5352e" />
+            <Label fx:id="employeeFunction" layoutX="166.0" layoutY="33.0" text="Label" textFill="#e5352e" />
+            <Label fx:id="hours" layoutX="675.0" layoutY="20.0" text="Label" textFill="#e5352e">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="date" layoutX="683.0" layoutY="44.0" text="Label" textFill="#e5352e">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </top>
@@ -52,8 +42,14 @@
          <children>
             <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="347.0" prefWidth="276.0" style="-fx-background-color: #FFFF;">
                <children>
-                  <HBox layoutX="3.0" layoutY="35.0" prefHeight="52.0" prefWidth="269.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000;" />
-                  <HBox layoutX="4.0" layoutY="103.0" prefHeight="52.0" prefWidth="269.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000;" />
+                  <HBox layoutX="3.0" layoutY="35.0" prefHeight="52.0" prefWidth="269.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000;">
+                     <children>
+                        <Label fx:id="initialPoint" />
+                     </children></HBox>
+                  <HBox layoutX="4.0" layoutY="103.0" prefHeight="52.0" prefWidth="269.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000;">
+                     <children>
+                        <Label fx:id="finalPoint" />
+                     </children></HBox>
                   <Text fill="#e5352e" layoutX="4.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Histórico de Ponto" wrappingWidth="165.36328125">
                      <font>
                         <Font name="Arial Black" size="14.0" />
@@ -66,26 +62,45 @@
    <bottom>
       <AnchorPane prefHeight="43.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="263.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: #e5352e; -fx-border-radius: 10;" text="Marcar Ponto" />
-            <Button layoutX="390.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: #e5352e;" text="Marcar Ferias" />
+            <Button fx:id="marcarPonto" layoutX="263.0" layoutY="7.0" mnemonicParsing="false" onAction="#checkPoint" style="-fx-background-color: #e5352e; -fx-border-radius: 10;" text="Marcar Ponto" />
+            <Button fx:id="marcarFerias" layoutX="390.0" layoutY="7.0" mnemonicParsing="false" onAction="#checkVacation" style="-fx-background-color: #e5352e;" text="Marcar Ferias" />
+            <Button fx:id="voltarButton" layoutX="-3.0" layoutY="-1.0" mnemonicParsing="false" onAction="#voltarButton" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #e5352e; -fx-border-radius: 10;" text="&lt;" />
          </children>
       </AnchorPane>
    </bottom>
    <right>
       <AnchorPane prefHeight="275.0" prefWidth="312.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="-3.0" layoutY="13.0" prefHeight="165.0" prefWidth="304.0" style="-fx-background-color: #FFFF;">
+            <AnchorPane layoutX="-3.0" layoutY="13.0" prefHeight="352.0" prefWidth="304.0" style="-fx-background-color: #FFFF;">
                <children>
                   <Text fill="#e5352e" layoutX="6.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo de Horas" wrappingWidth="145.36328125">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
                   </Text>
-                  <HBox layoutX="3.0" layoutY="32.0" prefHeight="62.0" prefWidth="298.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000; -fx-border-radius: 10;" />
-                  <HBox layoutX="6.0" layoutY="102.0" prefHeight="54.0" prefWidth="135.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000; -fx-border-radius: 10;" />
-                  <HBox layoutX="171.0" layoutY="102.0" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000; -fx-border-radius: 10;" />
+                  <HBox layoutX="6.0" layoutY="126.0" prefHeight="54.0" prefWidth="135.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000; -fx-border-radius: 10;">
+                     <children>
+                        <Label fx:id="horasAPagar" />
+                     </children></HBox>
+                  <HBox layoutX="9.0" layoutY="199.0" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000; -fx-border-radius: 10;">
+                     <children>
+                        <Label fx:id="horasExtra" />
+                     </children></HBox>
+                  <HBox layoutX="7.0" layoutY="40.0" prefHeight="54.0" prefWidth="135.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000; -fx-border-radius: 10;">
+                     <children>
+                        <Label fx:id="horasTotais" />
+                     </children>
+                  </HBox>
+                  <Text layoutX="8.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total" />
+                  <Text layoutX="8.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A pagar" />
+                  <Text layoutX="9.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra" />
+                  <HBox layoutX="11.0" layoutY="284.0" prefHeight="54.0" prefWidth="135.0" style="-fx-background-color: #FFFF; -fx-border-color: #000000; -fx-border-radius: 10;">
+                     <children>
+                        <Label fx:id="salarioTotal" />
+                     </children>
+                  </HBox>
+                  <Text layoutX="13.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário" />
                </children></AnchorPane>
-            <AnchorPane layoutX="-2.0" layoutY="190.0" prefHeight="180.0" prefWidth="302.0" style="-fx-background-color: #FFFF;" />
          </children>
       </AnchorPane>
    </right>

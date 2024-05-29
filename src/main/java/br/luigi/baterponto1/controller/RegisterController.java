@@ -1,5 +1,6 @@
 package br.luigi.baterponto1.controller;
 
+import br.luigi.baterponto1.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -38,6 +39,8 @@ public class RegisterController {
             String name = nameField.getText();
             String function = functionField.getText();
             boolean isAdmin = isAdminCheckBox.isSelected();
+            int saldoHoras = 20;
+            double salario = 12000;
 
             System.out.println("Matricula: " + matricula);
             System.out.println("Senha: " + senha);
@@ -45,7 +48,7 @@ public class RegisterController {
             System.out.println("Função: " + function);
             System.out.println("É Admin: " + isAdmin);
 
-            employeeDAO.addEmployee(name, matricula, senha, function, isAdmin);
+            employeeDAO.addEmployee(name, matricula, senha, function, isAdmin, saldoHoras, salario);
 
             System.out.println("Funcionario adicionado: " + employeeDAO.getEmployee(matricula));
         } catch (NumberFormatException ex) {
@@ -53,5 +56,9 @@ public class RegisterController {
         } catch (Exception ex) {
             System.err.println("Erro ao adicionar funcionário: " + ex.getMessage());
         }
+    }
+    @FXML
+    public void voltarButton(){
+        Main.changeScreen("adm");
     }
 }
